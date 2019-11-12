@@ -14,6 +14,8 @@ class TodoList extends Component {
         const todoItemDOM = todoItem.renderDOM();
         list.prepend(header.renderDOM());
         list.appendChild(todoItemDOM);
+
+        todos
     }
     renderHTML() {
         return /*html*/ `

@@ -1,20 +1,20 @@
 import Component from '../Component.js';
+import TodoItem from './TodoItem.js';
 
 class AddTodo extends Component {
 
     onRender(form) {
         const onAdd = this.props.onAdd;
-        
+
         form.addEventListener('submit', async event => {
             event.preventDefault();
 
             try {
-                await onAdd(catType);
+                await onAdd(TodoItem);
                 // this only runs if no error:
                 form.reset();
                 document.activeElement.blur();
-            }
-            catch (err) {
+            } catch (err) {
                 // nothing to do as App will show error,
                 // but will keep form from clearing...
             }
@@ -22,9 +22,9 @@ class AddTodo extends Component {
     }
 
     renderHTML() {
-        return /*html*/`
+        return /*html*/ `
             <form>
-                
+
             </form>
         `;
     }
