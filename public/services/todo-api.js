@@ -6,26 +6,41 @@ async function fetchWithError(url, options) {
 
     if (response.ok) {
         return data;
-    }
-    else {
+    } else {
         throw data.error;
     }
 }
 
-export function getTodos() {  
+export function getTodos() {
     const url = `${URL}/todos`;
     return fetchWithError(url);
 }
 
-export function addTodo(todo) {  
-    
+export function addTodo(todo) {
+    const url = `${URL}/add`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todo)
+    });
 }
 
-export function updateTodo(todo) {  
-    
+export function updateTodo(todo) {
+    const url = `${URL}/todos/${id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(todo)
+    });
 }
 
-export function removeTodo(todoId) {  
-    
+export function removeTodo(todoId) {
+    const url = `${URL}/todos/${id}`;
+    return fetchWithError(url, {
+        method: 'DELETE'
+    });
 }
-
