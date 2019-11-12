@@ -8,7 +8,7 @@ async function run() {
     try {
         // initiate connecting to db
         await client.connect();
-    
+
         // run a query to create tables
         await client.query(`
             CREATE TABLE todos (
@@ -28,5 +28,5 @@ async function run() {
         // success or failure, need to close the db connection
         client.end();
     }
-    
+
 }

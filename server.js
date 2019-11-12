@@ -24,12 +24,15 @@ app.get('/api/todos', async (req, res) => {
 
     try {
         const result = await client.query(`
-            
+            SELECT
+                t.id,
+                t.task,
+                t.complete
+            FROM todos t
         `);
 
         res.json(result.rows);
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json({
             error: err.message || err
@@ -43,13 +46,12 @@ app.post('/api/todos', async (req, res) => {
 
     try {
         const result = await client.query(`
-            
+
         `,
-        [/* pass in data */]);
+        []);
 
         res.json(result.rows[0]);
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json({
             error: err.message || err
@@ -63,12 +65,11 @@ app.put('/api/todos/:id', async (req, res) => {
 
     try {
         const result = await client.query(`
-            
-        `, [/* pass in data */]);
-     
+
+        `, []);
+
         res.json(result.rows[0]);
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json({
             error: err.message || err
@@ -82,12 +83,11 @@ app.delete('/api/todos/:id', async (req, res) => {
 
     try {
         const result = await client.query(`
-         
-        `, [/* pass data */]);
-        
+
+        `, []);
+
         res.json(result.rows[0]);
-    }
-    catch (err) {
+    } catch (err) {
         console.log(err);
         res.status(500).json({
             error: err.message || err
