@@ -12,12 +12,13 @@ async function fetchWithError(url, options) {
 }
 
 export function getTodos() {
+    // const showAll = options && options.showAll;
     const url = `${URL}/todos`;
     return fetchWithError(url);
 }
 
 export function addTodo(todo) {
-    const url = `${URL}/add`;
+    const url = `${URL}/todos`;
     return fetchWithError(url, {
         method: 'POST',
         headers: {

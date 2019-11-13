@@ -17,35 +17,32 @@ class TodoApp extends Component {
         const loading = new Loading({ loading: true });
         main.appendChild(loading.renderDOM());
 
-        const addTodo = new AddTodo({
-            todos: [],
+        const addTD = new AddTodo({
             onAdd: async todo => {
                 loading.update({ loading: true });
                 // clear prior error
                 error.textContent = '';
 
-                // initial todo load:
-
                 try {
                     // part 1: do work on the server
                     const saved = await addTodo(todo);
                     //integrate into our list
-                    const todos = this.states.todos;
+                    const todos = this.state.todos;
                     // find the index of this todo:
-
                     todos.push(saved);
-
                     todoList.update({ todos });
 
                     //tell componont to update
                 } catch (err) {
-                    // display error...
+
+                    error.textContent = err;
+
                 } finally {
                     loading.update({ loading: false });
                 }
             }
         });
-        main.appendChild(addTodo.renderDOM());
+        main.appendChild(addTD.renderDOM());
 
         const todoList = new TodoList({
             todos: [],
@@ -66,7 +63,7 @@ class TodoApp extends Component {
                     todos.splice(index, 1, updated);
 
                     // part 3: tell component to update
-                    TodoList.update({ todos });
+                    todoList.update({ todos });
                 } catch (err) {
                     // display error
                     console.log(err);
@@ -84,7 +81,6 @@ class TodoApp extends Component {
                 try {
                     // part 1: do work on the server
                     await removeTodo(todo.id);
-
                     // part 2: integrate back into our list
                     const todos = this.state.todos;
                     // find the index of this todo:
