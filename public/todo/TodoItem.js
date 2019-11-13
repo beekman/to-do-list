@@ -10,7 +10,6 @@ class TodoItem extends Component {
         // const removeButton = dom.querySelector('.remove-button');
 
         tickButton.addEventListener('click', () => {
-            console.log(todo);
             todo.complete = !todo.complete;
             onUpdate(todo);
         });
