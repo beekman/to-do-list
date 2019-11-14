@@ -16,15 +16,19 @@ async function run() {
                 task VARCHAR(512) NOT NULL,
                 complete BOOLEAN NOT NULL DEFAULT FALSE
             );
+
+            CREATE TABLE users (
+                id SERIAL PRIMARY KEY,
+                email VARCHAR(256) NOT NULL,
+                hash VARCHAR(512) NOT NULL
+            );
         `);
 
         console.log('create tables complete');
-    }
-    catch (err) {
+    } catch (err) {
         // problem? let's see the error...
         console.log(err);
-    }
-    finally {
+    } finally {
         // success or failure, need to close the db connection
         client.end();
     }

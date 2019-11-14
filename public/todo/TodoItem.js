@@ -11,6 +11,7 @@ class TodoItem extends Component {
 
         tickButton.addEventListener('click', () => {
             todo.complete = !todo.complete;
+            todo.checked = true;
             onUpdate(todo);
         });
 
