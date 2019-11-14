@@ -110,9 +110,9 @@ class App extends Component {
 
                     <section id="signin-container">
                     <h2>Sign In</h2>
-                        <p class="switch">
-                            <button id="signup-button">Need to create an Account?</button>
-                        </p>
+                    <p class="switch">
+                        <button id="signup-button">Need to create an account?</button>
+                    </p>
                         <!-- SignIn goes here -->
                     </section>
                 </main>
