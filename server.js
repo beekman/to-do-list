@@ -67,6 +67,7 @@ app.get('/api/todos', async (req, res) => {
             SELECT
                 *
             FROM todos t
+            ORDER BY task;
         `);
 
         res.json(result.rows);
