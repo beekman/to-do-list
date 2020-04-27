@@ -1,12 +1,12 @@
-LAB 11: Fullstack TODO list
+Full-stack To-Do List
 ===
 
-Todo App with page for tracking a single list of TODOs
+Todo App with page for tracking a single list of To-Do Items
 
-1. Displays a list of todos and indicate whether or not complete
-1. Has a form for adding a todo
-1. Marks a todo as complete
-1. Removes todo items
+1. Displays a list of to-dos and indicate whether or not complete
+1. Has a form for adding a to-do
+1. Marks a to-do as complete
+1. Removes to-do items
 
 ## Todo Data
 
