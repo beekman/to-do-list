@@ -31,7 +31,7 @@ Looks like:
 1. `getTodos()`
 1. `addTodo(todo)`
 1. `updateTodo(todo)`
-1. STRETCH: `removeTodo(todoId)`
+1. `removeTodo(todoId)`
 
 ## Server 
 
